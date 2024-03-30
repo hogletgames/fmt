@@ -1014,13 +1014,8 @@ TEST(chrono_test, out_of_range) {
 }
 
 TEST(chrono_test, year_month_day) {
-  auto loc = get_locale("es_ES.UTF-8");
-  std::locale::global(loc);  
-  auto year = fmt::year(2024);
-  auto month = fmt::month(1);
-  auto day = fmt::day(1);
-
-  EXPECT_EQ(fmt::format("{}", year), "2024");
-  EXPECT_EQ(fmt::format("{}", month), "Jan");
-  EXPECT_EQ(fmt::format("{}", day), "01");
+  std::locale::global(get_locale("es_ES.UTF-8"));
+  EXPECT_EQ(fmt::format("{}", fmt::year(2024)), "2024");
+  EXPECT_EQ(fmt::format("{}", fmt::month(1)), "Jan");
+  EXPECT_EQ(fmt::format("{}", fmt::day(1)), "01");
 }
